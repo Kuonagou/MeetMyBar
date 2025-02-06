@@ -10,5 +10,5 @@ data class DrinkVo(
     val alcoholDegree: Double,
     val name: String,
     val brand: String,
-    val type: String
+    val type: String?
 )
