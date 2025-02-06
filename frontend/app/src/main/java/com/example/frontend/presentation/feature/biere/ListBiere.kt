@@ -1,4 +1,4 @@
-package com.example.frontend.presentation.biere
+package com.example.frontend.presentation.feature.biere
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +21,7 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
@@ -31,7 +32,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.frontend.presentation.navigation.Screen
-import com.example.frontend.ui.theme.SpritzClairColor
 
 data class Beer(
     val name: String,
@@ -68,7 +68,7 @@ fun ListBiere(navHostController: NavHostController, modifier: Modifier) {
         topBar = {
             CenterAlignedTopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = SpritzClairColor,
+                    containerColor = MaterialTheme.colorScheme.tertiary,
                     titleContentColor = Color.Black,
                 ),
                 title = {

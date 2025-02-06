@@ -1,4 +1,4 @@
-package com.example.frontend.presentation.bar
+package com.example.frontend.presentation.feature.bar
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
@@ -40,18 +40,18 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.example.frontend.presentation.biere.Beer
-import com.example.frontend.presentation.biere.mapBeerColor
-import com.example.frontend.presentation.biere.mapFontOverBeer
+import com.example.frontend.presentation.feature.biere.Beer
+import com.example.frontend.presentation.feature.biere.mapBeerColor
+import com.example.frontend.presentation.feature.biere.mapFontOverBeer
 import com.example.frontend.presentation.navigation.Screen
 import com.example.frontend.presentation.components.Caroussel
-import com.example.frontend.ui.theme.SpritzClairColor
 import java.time.LocalDate
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -71,7 +71,7 @@ fun PageBar(modifier: Modifier, navHostController: NavHostController) {
         topBar = {
             CenterAlignedTopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = SpritzClairColor,
+                    containerColor = MaterialTheme.colorScheme.tertiary,
                     titleContentColor = Color.Black,
                 ),
                 title = {
