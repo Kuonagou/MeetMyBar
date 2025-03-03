@@ -7,22 +7,26 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.frontend.presentation.splashscreen.SplashScreenBeer
-import com.example.frontend.presentation.bar.PageBar
-import com.example.frontend.presentation.biere.AddBiere
-import com.example.frontend.presentation.biere.ListBiere
-import com.example.frontend.presentation.home.HomeScreen
-import com.example.frontend.presentation.biere.TestApiScreen
+import com.example.frontend.presentation.feature.addbar.AddBarScreen
+import com.example.frontend.presentation.feature.splashscreen.SplashScreenBeer
+import com.example.frontend.presentation.feature.bar.PageBar
+import com.example.frontend.presentation.feature.biere.AddBiere
+import com.example.frontend.presentation.feature.biere.ListBiere
+import com.example.frontend.presentation.feature.home.HomeScreen
+import com.example.frontend.presentation.feature.biere.TestApiScreen
+import com.example.frontend.presentation.feature.editbarmenu.EditBarMenuScreen
+import com.example.frontend.presentation.feature.settings.SettingsScreen
 
 @ExperimentalAnimationApi
 @ExperimentalComposeUiApi
 @Composable
 fun SetupNavGraph(
     modifier: Modifier,
-    navHostController: NavHostController) {
+    navHostController: NavHostController
+) {
     NavHost(
         navController = navHostController,
-        startDestination = Screen.SplachScreenBeer.route
+        startDestination = Screen.HomeScreen.route
     ) {
         composable(
             route = Screen.SplachScreenBeer.route
@@ -67,6 +71,27 @@ fun SetupNavGraph(
                 modifier = modifier
             )
         }
+        composable(
+            route = Screen.AddBarScreen.route
+        ) {
+            AddBarScreen(
+                navHostController = navHostController,
+            )
+        }
+        composable(
+            route = Screen.SettingsScreen.route
+        ) {
+            SettingsScreen(
+                navHostController = navHostController,
+            )
+        }
+        composable(
+            route = Screen.EditBarMenuScreen.route
+        ) {
+            EditBarMenuScreen(
+                navHostController = navHostController,
+            )
+        }
     }
 }
 
@@ -77,4 +102,7 @@ sealed class Screen(val route: String) {
     object ListBiere : Screen("ListBiere")
     object AddBiere : Screen("AddBiere")
     object TestApiScreen : Screen("TestApiScreen")
+    object AddBarScreen : Screen("AddBarScreen")
+    object SettingsScreen : Screen("SettingsScreen")
+    object EditBarMenuScreen : Screen("EditBarMenuScreen")
 }
